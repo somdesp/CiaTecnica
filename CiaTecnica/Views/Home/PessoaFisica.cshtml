@@ -1,0 +1,157 @@
+﻿@{
+    ViewBag.Title = "Cadastro de Pessoa Fisica";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row" ng-controller="pessoaFisica">
+    <div class="col-xs-12 col-md-12">
+        <div class="box box-danger">
+            <div class="box-body">
+                <form class="form-horizontal" name="AdiconarPessoaF" ng-submit="cadastrarFisica()">
+                    <div class="box-header">
+                        <h3 class="box-title">Dados</h3>
+
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label>Nome:</label>
+
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-edit"></i>
+                            </div>
+                            <input type="text" class="form-control" ng-model="nome" name="Nome" required>
+                        </div>
+                        <span ng-class="error" ng-show="AdiconarPessoaF.Nome.$error.required"></span>
+
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label>SobreNome:</label>
+
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-edit"></i>
+                            </div>
+                            <input type="text" class="form-control" ng-model="sobrenome" name="SobreNome" required ng-maxlength=15>
+                        </div>
+                        <span ng-class="error" ng-show="AdiconarPessoaF.SobreNome.$error.required"></span>
+                        <span ng-class="error" ng-show="AdiconarPessoaF.SobreNome.$error.maxlength">Maximo 15 caracteres</span>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label>CPF:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-vcard"></i>
+                            </div>
+                            <input type="text" class="form-control" ng-model="cpf" name="cpf"  ui-mask="999.999.999-99" required />
+                        </div>
+                        <span ng-class="error" ng-show="AdiconarPessoaF.cpf.$error.required"></span>
+                    </div>
+
+
+                    <div class="form-group col-md-6">
+                        <label>Data Nascimento:</label>
+                        <div class="input-group date">
+                            <div class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                            <input type="date" class="form-control" ng-model="dataNasci" name="DataNas" required>
+                        </div>
+                        <span ng-class="error" ng-show="AdiconarPessoaF.DataNas.$error.required"></span>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label>CEP:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-home"></i>
+                            </div>
+                            <input type="text" class="form-control" ng-model="cep" name="CEP" ui-mask="99999-999"  required  >
+                        </div>
+                        <span ng-class="error" ng-show="AdiconarPessoaF.CEP.$error.required"></span>
+                        <span ng-class="error" ng-show="AdiconarPessoaF.UF.$error.maxlength">Maximo 8 caracteres</span>
+                    </div>
+
+
+                    <div class="form-group col-md-6">
+                        <label>Logradouro:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-home"></i>
+                            </div>
+                            <input type="text" class="form-control" ng-model="logradouro" name="Logradouro" required>
+                        </div>
+                        <span ng-class="error" ng-show="AdiconarPessoaF.Logradouro.$error.required"></span>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label>Número:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-registered"></i>
+                            </div>
+                            <input type="text" class="form-control" ng-model="numero" name="Numero" required>
+                        </div>
+                        <span ng-class="error" ng-show="AdiconarPessoaF.Numero.$error.required"></span>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label>Bairro:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-delicious"></i>
+                            </div>
+                            <input type="text" class="form-control" ng-model="bairro" name="Bairro" required>
+                        </div>
+                        <span ng-class="error" ng-show="AdiconarPessoaF.Bairro.$error.required"></span>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label>Complemento:</label>
+
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-street-view"></i>
+                            </div>
+                            <input type="text" class="form-control"ng-model="complemento" name="Complemento">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label>Cidade:</label>
+
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-circle-o-notch"></i>
+                            </div>
+                            <input type="text" class="form-control" ng-model="cidade" name="Cidade" required>
+                        </div>
+                        <span ng-class="error" ng-show="AdiconarPessoaF.Cidade.$error.required"></span>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label>UF:</label>
+
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-code"></i>
+                            </div>
+                            <input type="text" class="form-control" ng-model="uf" name="UF" required ng-maxlength=8>
+                        </div>
+                        <span ng-class="error" ng-show="AdiconarPessoaF.UF.$error.required"></span>
+                        <span ng-class="error" ng-show="AdiconarPessoaF.UF.$error.maxlength">Maximo 8 caracteres</span>
+
+                    </div>
+
+                    <div class="form-group col-md-12">
+                        <input type="submit"  class="btn btn-primary" ng-disabled="AdiconarPessoaF.$invalid">
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</div>

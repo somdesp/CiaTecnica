@@ -1,0 +1,40 @@
+﻿@using WebHelpers.Mvc5
+<aside class="main-sidebar">
+    <section class="sidebar">
+        @* BEGIN Search *@
+        <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+                <input type="text" name="q" class="form-control" placeholder="Search...">
+                <span class="input-group-btn">
+                    <button type="submit" name="search" id="search-btn" class="btn btn-flat">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </span>
+            </div>
+        </form>
+        @* END Search *@
+        @* BEGIN Menu *@
+        <ul class="sidebar-menu" data-widget="tree">
+            <li class="header">HEADER</li>
+            <li class="@Url.IsLinkActive("PessoaJuridica", "Home")">
+                <a href="@Url.Action("PessoaJuridica", "Home")"><i class="fa fa-link"></i> <span>Pessoa Juridica</span></a>
+            </li>
+            <li class="@Url.IsLinkActive("PessoaFisica", "Home")">
+                <a href="@Url.Action("PessoaFisica", "Home")"><i class="fa fa-link"></i> <span>Pessoa Fisica</span></a>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-link"></i> <span>Editar</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="@Url.Action("ListaFisica", "Home")">Pessoa Fisica</a></li>
+                    <li><a href="@Url.Action("ListaJuridica", "Home")">Pessoa Juridica</a></li>
+                </ul>
+            </li>
+        </ul>
+        @* END Menu *@
+    </section>
+</aside>

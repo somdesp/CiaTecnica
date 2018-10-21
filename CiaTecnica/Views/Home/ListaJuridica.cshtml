@@ -1,0 +1,205 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div ng-controller="pessoaJuridica">
+
+
+    <div class="row">
+        <div class="col-xs-12 col-md-12">
+            <div class="box box-danger">
+                <div class="box-body">
+                    <div class="sub-title">
+                        <div class="panel-heading"><h2>Lista de Pessoas Juridica</h2></div>
+                    </div>
+                    <table class="table table-bordered">
+                        <thead style="background-color:#3c8dbc;">
+                            <tr>
+                                <th>CNPJ</th>
+                                <th>Nome Fantasia</th>
+                                <th>Razao Social</th>
+                                <th>CEP</th>
+                                <th>Logradouro</th>
+                                <th>Número</th>
+                                <th>Complemento</th>
+                                <th>Bairro</th>
+                                <th>Cidade</th>
+                                <th>UF</th>
+                                <th>Ação</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="juridica in JuridicaLista">
+                                <td>{{juridica.CNPJ}}</td>
+                                <td>{{juridica.NomeFantasia}}</td>
+                                <td>{{juridica.RazaoSocial}}</td>
+                                <td>{{juridica.CEP}}</td>
+                                <td>{{juridica.Logradouro}}</td>
+                                <td>{{juridica.Numero}}</td>
+                                <td>{{juridica.Complemento}}</td>
+                                <td>{{juridica.Bairro}}</td>
+                                <td>{{juridica.Cidade}}</td>
+                                <td>{{juridica.UF}}</td>
+
+                                <td style="width: 200px">
+                                    <button type="button" data-target="#AtualizarPessoaJuridica" class="btn btn-info" data-toggle="modal" ng-click="carregarPessoaJuridicaID(juridica)">Editar</button>
+                                    <button type="button" class="btn btn-danger" ng-click="excluirJuridica(juridica)">Excluir</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @* Modal Atualização de Pessoa Juridica*@
+    <div class="modal fade alert-heading" id="AtualizarPessoaJuridica" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="text-info">Atualizar Pessoa Juridica</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="box-body">
+                        <form class="form-horizontal" name="AtualizaPessoaJ">
+                            <input type="hidden" class="form-control" ng-model="id" name="id" required>
+
+                            <div class="form-group col-md-6">
+                                <label>Razão Social:</label>
+
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-edit"></i>
+                                    </div>
+                                    <input type="text" class="form-control" ng-model="razaosocial" name="RazaoSocial" required>
+                                </div>
+                                <span ng-class="error" ng-show="AtualizaPessoaJ.RazaoSocial.$error.required"></span>
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label>Nome Fantasia:</label>
+
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-edit"></i>
+                                    </div>
+                                    <input type="text" class="form-control" ng-model="nomfantasia" name="NomFantasia" required>
+                                </div>
+                                <span ng-class="error" ng-show="AtualizaPessoaJ.NomFantasia.$error.required"></span>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label>CNPJ:</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-vcard"></i>
+                                    </div>
+                                    <input type="text" class="form-control" ng-model="cnpj" name="CNPJ" ui-mask="99.999.999/9999-99 " required />
+                                </div>
+                                <span ng-class="error" ng-show="AtualizaPessoaJ.CNPJ.$error.required"></span>
+                            </div>
+
+
+                            <div class="form-group col-md-6">
+                                <label>CEP:</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-home"></i>
+                                    </div>
+                                    <input type="text" class="form-control" ng-model="cep" name="CEP" ui-mask="99999-999" required>
+                                </div>
+                                <span ng-class="error" ng-show="AtualizaPessoaJ.CEP.$error.required"></span>
+                            </div>
+
+
+                            <div class="form-group col-md-6">
+                                <label>Logradouro:</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-home"></i>
+                                    </div>
+                                    <input type="text" class="form-control" ng-model="logradouro" name="Logradouro" required>
+                                </div>
+                                <span ng-class="error" ng-show="AtualizaPessoaJ.Logradouro.$error.required"></span>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label>Número:</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-registered"></i>
+                                    </div>
+                                    <input type="text" class="form-control" ng-model="numero" name="Numero" required>
+                                </div>
+                                <span ng-class="error" ng-show="AtualizaPessoaJ.Numero.$error.required"></span>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label>Bairro:</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-delicious"></i>
+                                    </div>
+                                    <input type="text" class="form-control" ng-model="bairro" name="Bairro" required>
+                                </div>
+                                <span ng-class="error" ng-show="AtualizaPessoaJ.Bairro.$error.required"></span>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label>Complemento:</label>
+
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-street-view"></i>
+                                    </div>
+                                    <input type="text" class="form-control" ng-model="complemento" name="Complemento">
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label>Cidade:</label>
+
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-circle-o-notch"></i>
+                                    </div>
+                                    <input type="text" class="form-control" ng-model="cidade" name="Cidade" required>
+                                </div>
+                                <span ng-class="error" ng-show="AtualizaPessoaJ.Cidade.$error.required"></span>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label>UF:</label>
+
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-code"></i>
+                                    </div>
+                                    <input type="text" class="form-control" ng-model="uf" name="UF" required ng-maxlength=8>
+                                </div>
+                                <span ng-class="error" ng-show="AtualizaPessoaJ.UF.$error.required"></span>
+                                <span ng-class="error" ng-show="AtualizaPessoaJ.UF.$error.maxlength">Maximo 8 caracteres</span>
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="btnSalvar"
+                            data-dimiss="modal" ng-disabled="AtualizaPessoaJ.$invalid" ng-click="atualizarJuridica()">
+                        Atualizar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* Fim Modal Atualização Pessoa Juridica*@
+

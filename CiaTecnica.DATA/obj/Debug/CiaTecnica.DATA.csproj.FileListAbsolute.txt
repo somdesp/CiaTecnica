@@ -1,0 +1,8 @@
+C:\Users\Anderson\Dropbox\ECM\CiaTecnica\CiaTecnica.DATA\bin\Debug\CiaTecnica.DATA.dll
+C:\Users\Anderson\Dropbox\ECM\CiaTecnica\CiaTecnica.DATA\bin\Debug\CiaTecnica.DATA.pdb
+C:\Users\Anderson\Dropbox\ECM\CiaTecnica\CiaTecnica.DATA\obj\Debug\CiaTecnica.DATA.csprojResolveAssemblyReference.cache
+C:\Users\Anderson\Dropbox\ECM\CiaTecnica\CiaTecnica.DATA\obj\Debug\CiaTecnica.DATA.csproj.CoreCompileInputs.cache
+C:\Users\Anderson\Dropbox\ECM\CiaTecnica\CiaTecnica.DATA\obj\Debug\CiaTecnica.DATA.dll
+C:\Users\Anderson\Dropbox\ECM\CiaTecnica\CiaTecnica.DATA\obj\Debug\CiaTecnica.DATA.pdb
+C:\Users\Anderson\Dropbox\ECM\CiaTecnica\CiaTecnica.DATA\bin\Debug\CiaTecnica.Entity.dll
+C:\Users\Anderson\Dropbox\ECM\CiaTecnica\CiaTecnica.DATA\bin\Debug\CiaTecnica.Entity.pdb
